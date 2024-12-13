@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Attendance>
+
+<h1>Attendance Details</h1>
+<a class="btn btn-primary" asp-controller="Attendance" asp-action="AddAttendance">Add Attendance</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Attendance Id</th>
+            <th>Employee Id</th>
+            <th>Attendance Date</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attend in Model)
+        {
+            <tr>
+                <td>
+                    @attend.Attendace_Id
+                </td>
+                <td>
+                    @attend.Employee_Id
+                </td>
+                <td>
+                    @attend.Attendance_Date
+                </td>
+                <td>
+                    @attend.Check_in
+                </td>
+                <td>
+                    @attend.Check_out
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Attendance" asp-action="EditAttendance" asp-route-id="@attend.Attendace_Id">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Attendance" asp-action="DeleteAttendance" asp-route-id="@attend.Attendace_Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
